@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Welkom bij het HLW</h1>
+<div th:if="${success} == true">
+    <p th:text="'Gefeliciteerd ' + ${leerling.getVoornamen()} + ' ' + ${leerling.getAchternaam()} + ', Jij hebt je succesvol ingeschreven bij het HLW.'"/>
+    <a href="/register">Meld je nog een keer aan</a>
+</div>
+<div th:if="${success} == false">
+    <p th:text="'Helaas is er een fout opgetreden!'"/>
+    <a href="/register">Probeer het nogmaals</a>
+</div>
+</body>
+</html>

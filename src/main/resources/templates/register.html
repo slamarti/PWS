@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="../static/css/layout.css" th:href="@{/css/layout.css}" rel="stylesheet"/>
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1 class="section-title" id="titel">AanmeldingsFormulier</h1>
+<form id="regForm" action="#" th:action="@{/register}" th:object="${leerling}" method="post">
+
+    <h4 class="section-title">Leerling Gegevens</h4>
+    <p class="input-container">
+        <span class="title-item">Klas</span>
+        <input min="1" max="6" type="number" class="standard-input" th:field="*{klas}" required>
+        <span class="title-item">Niveau</span>
+        <select class="standard-input" th:field="*{niveau}" required>
+            <option th:each="niveau : ${T(com.slamarti.hlw.aanmelden.model.SchoolNiveau).values()}" th:value="${niveau}"
+                    th:text="${niveau.displayName}"></option>
+        </select>
+    </p>
+    <p class="input-container container-single">
+        <span class="title-item">Achternaam</span>
+        <input class="standard-input" type="text" th:field="*{Achternaam}" pattern="^[a-zA-Z]+$" required>
+    </p>
+    <p class="input-container">
+        <span class="title-item">Voorvoegsel</span>
+        <input class="standard-input" type="text" th:field="*{Voorvoegsel}" pattern="^[a-zA-Z]+$">
+        <span class="title-item">Voorletter</span>
+        <input class="standard-input" type="text" th:field="*{Voorletters}" pattern="^[a-zA-Z]+$" required>
+    </p>
+    <p class="input-container container-single">
+        <span class="title-item">Voornamen</span>
+        <input class="standard-input" type="text" th:field="*{Voornamen}" pattern="^[a-zA-Z]+$" required>
+    </p>
+    <p class="input-container">
+        <span class="title-item">Roepnaam</span>
+        <input class="standard-input" type="text" th:field="*{Roepnaam}" pattern="^[a-zA-Z]+$">
+        <span class="title-item">Geslacht</span>
+        <select class="standard-input" th:field="*{geslacht}" required>
+            <option th:each="geslacht : ${T(com.slamarti.hlw.aanmelden.model.Geslacht).values()}" th:value="${geslacht}"
+                    th:text="${geslacht.displayName}"></option>
+        </select>
+    </p>
+    <p class="input-container">
+        <span class="title-item">Adres</span>
+        <input class="standard-input" type="text" th:field="*{Adres}" required pattern="^[a-zA-Z]+$">
+        <span class="title-item">Huisnummer</span>
+        <input class="standard-input" type="number" th:field="*{Huisnummer}" required>
+    </p>
+    <p class="input-container">
+        <span class="title-item">Woonplaats</span>
+        <input class="standard-input" type="text" th:field="*{Woonplaats}" required pattern="^[a-zA-Z]+$">
+        <span class="title-item">Postcode</span>
+        <input class="standard-input" type="text" th:field="*{Postcode}" required pattern="^[0-9]{4}[a-zA-Z]{2}$">
+    </p>
+    <p class="input-container">
+        <span class="title-item">Woonplaats</span>
+        <input class="standard-input" type="number" th:field="*{Telefoon}" required pattern="^\d{10}$">
+        <span class="title-item">Geboortedatum</span>
+        <input class="standard-input" type="date" th:field="*{geboortedatum}" required>
+    </p>
+    <p class="input-container">
+        <span class="title-item">GeboortePlaats</span>
+        <input class="standard-input" type="text" th:field="*{geboorteplaats}" pattern="^[a-zA-Z]+$" required>
+        <span class="title-item">Geboorteland</span>
+        <input class="standard-input" type="text" th:field="*{Geboorteland}" pattern="^[a-zA-Z]+$" required>
+    </p>
+    <p class="input-container container-single">
+        <span class="title-item">Nationaliteiten</span>
+        <input class="standard-input" type="text" th:field="*{Nationaliteiten}" pattern="^[a-zA-Z]+$" required>
+    </p>
+    <p class="input-container container-single">
+        <span class="title-item">BSN nummer</span>
+        <input class="standard-input" type="number" th:field="*{BSNNummer}" required>
+    </p>
+
+    <h4 class="section-title">Gegevens Basisschool</h4>
+    <p class="input-container">
+        <span class="title-item">Naam school</span>
+        <input class="standard-input" type="text" th:field="${leerling.basisschool.naamSchool}" pattern="^[a-zA-Z]+$"
+               required>
+        <span class="title-item">Plaats</span>
+        <input class="standard-input" type="text" th:field="${leerling.basisschool.Plaats}" pattern="^[a-zA-Z]+$"
+               required>
+    </p>
+    <p class="input-container container-single">
+        <span class="title-item">Schooladvies</span>
+        <input class="standard-input" type="text" th:field="${leerling.basisschool.Schooladvies}" pattern="^[a-zA-Z]+$"
+               required>
+    </p>
+    <p class="input-container container-single">
+        <span class="title-item">Contactpersoon</span>
+        <input class="standard-input" type="text" th:field="${leerling.basisschool.Contactpersoon}"
+               pattern="^[a-zA-Z]+$" required>
+    </p>
+    <p class="input-container">
+        <span class="title-item">Telefoon Basisschool</span>
+        <input class="standard-input" type="number" th:field="${leerling.basisschool.Telefoon}" pattern="^\d{10}$"
+               required>
+        <span class="title-item">Citoscore</span>
+        <input class="standard-input" type="number" th:field="${leerling.basisschool.citoScore}" required>
+    </p>
+
+    <h4 class="section-title">Aanvullende leerlinggegevens</h4>
+    <p class="input-container">
+        <span class="title-item">Medische Bijzonderheden</span>
+        <input class="standard-input" type="text"
+               th:field="${leerling.leerlingGegevensAanvullend.medischeBijzonderheden}">
+        <span class="title-item">Medicijn gebruik</span>
+        <select class="standard-input" th:field="${leerling.leerlingGegevensAanvullend.medicijnGebruik}" required>
+            <option value="true">ja</option>
+            <option value="false">nee</option>
+        </select>
+    </p>
+    <p class="input-container">
+        <span class="title-item">In Nederland Sinds</span>
+        <input class="standard-input" type="date" th:field="${leerling.leerlingGegevensAanvullend.inNederlandSinds}">
+        <span class="title-item">Godsdienst</span>
+        <input class="standard-input" type="text" th:field="${leerling.leerlingGegevensAanvullend.Godsdienst}"
+               pattern="^[a-zA-Z]+$" required>
+    </p>
+    <p class="input-container">
+        <span class="title-item">Behoefte aan bijzondere zorg</span>
+        <select class="standard-input" th:field="${leerling.leerlingGegevensAanvullend.behoefteAanBijzondereZorg}"
+                required>
+            <option value="true">ja</option>
+            <option value="false">nee</option>
+        </select>
+        <span class="title-item">Zwemdiploma</span>
+        <select class="standard-input" th:field="${leerling.leerlingGegevensAanvullend.Zwemdiploma}" required>
+            <option value="true">ja</option>
+            <option value="false">nee</option>
+        </select>
+    </p>
+    <p class="input-container container-single">
+        <span class="title-item">Broer/Zus op HLW</span>
+        <select class="standard-input" th:field="${leerling.leerlingGegevensAanvullend.broerZusOpHLW}" required>
+            <option value="true">ja</option>
+            <option value="false">nee</option>
+        </select>
+    </p>
+    <p class="input-container container-single">
+        <span class="title-item">Plaatsingswensen</span>
+        <input class="standard-input" type="text" th:field="${leerling.leerlingGegevensAanvullend.Plaatsingswensen}"
+               pattern="^[a-zA-Z]+$" required>
+    </p>
+
+    <th:block th:each="verzorgers,i : ${leerling.verzorgers}">
+        <h4 class="section-title" th:text="'Gegevens ouder / verzorger (' + ${i.count} + ')'"/>
+        <p class="input-container">
+            <span class="title-item">Achternaam</span>
+            <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Achternaam}"
+                   pattern="^[a-zA-Z]+$" required>
+            <span class="title-item">Voorvoegsel</span>
+            <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Voorvoegsel}"
+                   pattern="^[a-zA-Z]+$">
+        </p>
+        <p class="input-container">
+            <span class="title-item">Voornaam</span>
+            <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Voornaam}"
+                   pattern="^[a-zA-Z]+$" required>
+            <span class="title-item">Voorletter</span>
+            <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Voorletters}"
+                   pattern="^[a-zA-Z]+$" required>
+        </p>
+        <p class="input-container">
+            <span class="title-item">Adres</span>
+            <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Adres}"
+                   pattern="^[a-zA-Z]+$" required>
+            <span class="title-item">Huisnummer</span>
+            <input class="standard-input" type="number" th:field="*{verzorgers[__${i.index}__].Huisnummer}" required>
+        </p>
+        <p class="input-container">
+            <span class="title-item">Woonplaats</span>
+            <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Postcode}"
+                   pattern="^[0-9]{4}[a-zA-Z]{2}$" required>
+            <span class="title-item">Postcode</span>
+            <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Woonplaats}"
+                   pattern="^[a-zA-Z]+$" required>
+        </p>
+        <p class="input-container">
+            <span class="title-item">Telefoon</span>
+            <input class="standard-input" type="number" th:field="*{verzorgers[__${i.index}__].Telefoonnummer}"
+                   pattern="^\d{10}$" required>
+            <span class="title-item">Telefoon type</span>
+            <select class="standard-input" th:field="*{verzorgers[__${i.index}__].Telefoonnummer_type}" required>
+                <option th:each="telType : ${T(com.slamarti.hlw.aanmelden.model.TelephoneType).values()}"
+                        th:value="${telType}" th:text="${telType.displayName}"></option>
+            </select>
+        </p>
+        <p class="input-container">
+            <span class="title-item">Telefoon mobiel</span>
+            <input class="standard-input" type="number" th:field="*{verzorgers[__${i.index}__].Mobielnummer}"
+                   pattern="^\d{10}$" required>
+            <span class="title-item">Telefoon mobiel type</span>
+            <select class="standard-input" th:field="*{verzorgers[__${i.index}__].Mobielnummer_type}" required>
+                <option th:each="telType : ${T(com.slamarti.hlw.aanmelden.model.TelephoneType).values()}"
+                        th:value="${telType}" th:text="${telType.displayName}"></option>
+            </select>
+        </p>
+        <p class="input-container container-single">
+            <span class="title-item">E-mail</span>
+            <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Email}"
+                   pattern="^[\w\.-]+@\w+\.\w+$" required>
+        </p>
+        <p class="input-container">
+            <span class="title-item">Geboorteland</span>
+            <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Geboorteland}"
+                   pattern="^[a-zA-Z]+$" required>
+            <span class="title-item">Geboortedatum</span>
+            <input class="standard-input" type="date" th:field="*{verzorgers[__${i.index}__].Geboortedatum}" required>
+        </p>
+        <p class="input-container">
+            <span class="title-item">Nationaliteiten</span>
+            <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Nationaliteit}"
+                   pattern="^[a-zA-Z]+$" required>
+            <span class="title-item">Geslacht</span>
+            <select class="standard-input" th:field="*{verzorgers[__${i.index}__].geslacht}" required>
+                <option th:each="geslacht : ${T(com.slamarti.hlw.aanmelden.model.Geslacht).values()}"
+                        th:value="${geslacht}"
+                        th:text="${geslacht.displayName}"></option>
+            </select>
+        </p>
+        <p class="input-container container-single">
+            <span class="title-item">Relatie tot leerling</span>
+            <select class="standard-input" th:field="*{verzorgers[__${i.index}__].verzorgerType}" required>
+                <option th:each="verzorgerType : ${T(com.slamarti.hlw.aanmelden.model.VerzorgerType).values()}"
+                        th:value="${verzorgerType}" th:text="${verzorgerType.displayName}"></option>
+            </select>
+        </p>
+        <p class="input-container container-single">
+            <span class="title-item">Relatie tot leerling</span>
+            <select class="standard-input" th:field="*{verzorgers[__${i.index}__].burgerlijkeStaat}" required>
+                <option th:each="burgerlijkeStaat : ${T(com.slamarti.hlw.aanmelden.model.BurgerlijkeStaat).values()}"
+                        th:value="${burgerlijkeStaat}" th:text="${burgerlijkeStaat.displayName}"></option>
+            </select>
+        </p>
+    </th:block>
+
+    <h4 class="section-title">Zij-instromers gegevens vorig school</h4>
+    <p class="input-container">
+        <span class="title-item">Naam school</span>
+        <input class="standard-input" type="text" th:field="${leerling.zijInstromersGegevens.naamSchool}"
+               pattern="^[a-zA-Z]+$">
+        <span class="title-item">Plaats</span>
+        <input class="standard-input" type="text" th:field="${leerling.zijInstromersGegevens.Plaats}"
+               pattern="^[a-zA-Z]+$">
+    </p>
+    <p class="input-container">
+        <span class="title-item">Naam contactpersoon</span>
+        <input class="standard-input" type="text" th:field="${leerling.zijInstromersGegevens.naamContactPersoon}"
+               pattern="^[a-zA-Z]+$">
+        <span class="title-item">Telefoonnummer</span>
+        <input class="standard-input" type="number" th:field="${leerling.zijInstromersGegevens.Telefoonnummer}">
+    </p>
+
+
+    <p><input class="section-title" type="submit" value="Meld aan"></p>
+</form>
+</body>
+</html>

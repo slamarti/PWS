@@ -1,0 +1,45 @@
+/* Style the form */
+#regForm {
+  display: table;
+  background-color: #ffffff;
+  margin: 30px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+#titel {
+    text-align: center;
+}
+
+.title-item {
+   color: #4a4889;
+   background-color: #b9afd1;
+   border: 1px solid #d0c9e0;
+}
+
+.standard-input {
+  color: #4a4889;
+  border: 1px solid #d0c9e0;
+}
+
+.input-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 2fr;
+    column-gap: 0px;
+    margin: 4px;
+}
+
+.container-single {
+    grid-template-columns: 1fr 5fr;
+}
+
+.section-title {
+    color: #4a4889;
+    text-align: center;
+}
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
