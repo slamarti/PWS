@@ -19,13 +19,13 @@
                     th:text="${niveau.displayName}"></option>
         </select>
     </p>
-    <p class="input-container container-single">
+    <p class="input-container">
         <span class="title-item">Achternaam</span>
         <input class="standard-input" type="text" th:field="*{Achternaam}" pattern="^[a-zA-Z]+$" required>
-    </p>
-    <p class="input-container">
         <span class="title-item">Voorvoegsel</span>
         <input class="standard-input" type="text" th:field="*{Voorvoegsel}" pattern="^[a-zA-Z]+$">
+    </p>
+    <p class="input-container container-single">
         <span class="title-item">Voorletter</span>
         <input class="standard-input" type="text" th:field="*{Voorletters}" pattern="^[a-zA-Z]+$" required>
     </p>
@@ -54,17 +54,19 @@
         <span class="title-item">Postcode</span>
         <input class="standard-input" type="text" th:field="*{Postcode}" required pattern="^[0-9]{4}[a-zA-Z]{2}$">
     </p>
-    <p class="input-container">
-        <span class="title-item">Woonplaats</span>
+    <p class="input-container container-single">
+        <span class="title-item">Telefoon</span>
         <input class="standard-input" type="number" th:field="*{Telefoon}" required pattern="^\d{10}$">
-        <span class="title-item">Geboortedatum</span>
-        <input class="standard-input" type="date" th:field="*{geboortedatum}" required>
     </p>
     <p class="input-container">
         <span class="title-item">GeboortePlaats</span>
         <input class="standard-input" type="text" th:field="*{geboorteplaats}" pattern="^[a-zA-Z]+$" required>
-        <span class="title-item">Geboorteland</span>
-        <input class="standard-input" type="text" th:field="*{Geboorteland}" pattern="^[a-zA-Z]+$" required>
+        <span class="title-item">Geboortedatum</span>
+        <input class="standard-input" type="date" th:field="*{geboortedatum}" required>
+    </p>
+    <p class="input-container container-single">
+    <span class="title-item">Geboorteland</span>
+    <input class="standard-input" type="text" th:field="*{Geboorteland}" pattern="^[a-zA-Z]+$" required>
     </p>
     <p class="input-container container-single">
         <span class="title-item">Nationaliteiten</span>
@@ -99,7 +101,7 @@
         <input class="standard-input" type="number" th:field="${leerling.basisschool.Telefoon}" pattern="^\d{10}$"
                required>
         <span class="title-item">Citoscore</span>
-        <input class="standard-input" type="number" th:field="${leerling.basisschool.citoScore}" required>
+        <input class="standard-input" min="500" max="550" type="number" th:field="${leerling.basisschool.citoScore}" required>
     </p>
 
     <h4 class="section-title">Aanvullende leerlinggegevens</h4>
@@ -143,7 +145,7 @@
     <p class="input-container container-single">
         <span class="title-item">Plaatsingswensen</span>
         <input class="standard-input" type="text" th:field="${leerling.leerlingGegevensAanvullend.Plaatsingswensen}"
-               pattern="^[a-zA-Z]+$" required>
+               pattern="^[a-zA-Z]+$">
     </p>
 
     <th:block th:each="verzorgers,i : ${leerling.verzorgers}">
@@ -174,10 +176,10 @@
         <p class="input-container">
             <span class="title-item">Woonplaats</span>
             <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Postcode}"
-                   pattern="^[0-9]{4}[a-zA-Z]{2}$" required>
+                   pattern="^[a-zA-Z]+$" required>
             <span class="title-item">Postcode</span>
             <input class="standard-input" type="text" th:field="*{verzorgers[__${i.index}__].Woonplaats}"
-                   pattern="^[a-zA-Z]+$" required>
+                   pattern="^[0-9]{4}[a-zA-Z]{2}$" required>
         </p>
         <p class="input-container">
             <span class="title-item">Telefoon</span>
