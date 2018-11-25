@@ -1,3 +1,4 @@
+create database leerlingen_database;
 use leerlingen_database;
 create table Leerlinggegevens(leerlingen_id INT NOT NULL AUTO_INCREMENT,
 Achternaam varchar(50), Voorvoegsel varchar(50), Voorletters varchar(50), Voornamen varchar(50),
