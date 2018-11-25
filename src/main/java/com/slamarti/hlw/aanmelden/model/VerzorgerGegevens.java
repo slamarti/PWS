@@ -1,5 +1,9 @@
 package com.slamarti.hlw.aanmelden.model;
 
+import com.slamarti.hlw.aanmelden.model.types.BurgerlijkeStaat;
+import com.slamarti.hlw.aanmelden.model.types.Geslacht;
+import com.slamarti.hlw.aanmelden.model.types.TelephoneType;
+import com.slamarti.hlw.aanmelden.model.types.VerzorgerType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;

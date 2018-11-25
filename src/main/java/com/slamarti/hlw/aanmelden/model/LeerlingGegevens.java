@@ -1,5 +1,7 @@
 package com.slamarti.hlw.aanmelden.model;
 
+import com.slamarti.hlw.aanmelden.model.types.Geslacht;
+import com.slamarti.hlw.aanmelden.model.types.SchoolNiveau;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;

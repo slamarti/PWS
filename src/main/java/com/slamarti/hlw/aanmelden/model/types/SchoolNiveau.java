@@ -1,4 +1,4 @@
-package com.slamarti.hlw.aanmelden.model;
+package com.slamarti.hlw.aanmelden.model.types;
 
 public enum SchoolNiveau {
 
