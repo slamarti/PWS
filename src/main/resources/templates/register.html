@@ -15,7 +15,7 @@
         <input min="1" max="6" type="number" class="standard-input" th:field="*{klas}" required>
         <span class="title-item">Niveau</span>
         <select class="standard-input" th:field="*{niveau}" required>
-            <option th:each="niveau : ${T(com.slamarti.hlw.aanmelden.model.SchoolNiveau).values()}" th:value="${niveau}"
+            <option th:each="niveau : ${T(com.slamarti.hlw.aanmelden.model.types.SchoolNiveau).values()}" th:value="${niveau}"
                     th:text="${niveau.displayName}"></option>
         </select>
     </p>
@@ -38,7 +38,7 @@
         <input class="standard-input" type="text" th:field="*{Roepnaam}" pattern="^[a-zA-Z]+$">
         <span class="title-item">Geslacht</span>
         <select class="standard-input" th:field="*{geslacht}" required>
-            <option th:each="geslacht : ${T(com.slamarti.hlw.aanmelden.model.Geslacht).values()}" th:value="${geslacht}"
+            <option th:each="geslacht : ${T(com.slamarti.hlw.aanmelden.model.types.Geslacht).values()}" th:value="${geslacht}"
                     th:text="${geslacht.displayName}"></option>
         </select>
     </p>
@@ -185,7 +185,7 @@
                    pattern="^\d{10}$" required>
             <span class="title-item">Telefoon type</span>
             <select class="standard-input" th:field="*{verzorgers[__${i.index}__].Telefoonnummer_type}" required>
-                <option th:each="telType : ${T(com.slamarti.hlw.aanmelden.model.TelephoneType).values()}"
+                <option th:each="telType : ${T(com.slamarti.hlw.aanmelden.model.types.TelephoneType).values()}"
                         th:value="${telType}" th:text="${telType.displayName}"></option>
             </select>
         </p>
@@ -195,7 +195,7 @@
                    pattern="^\d{10}$" required>
             <span class="title-item">Telefoon mobiel type</span>
             <select class="standard-input" th:field="*{verzorgers[__${i.index}__].Mobielnummer_type}" required>
-                <option th:each="telType : ${T(com.slamarti.hlw.aanmelden.model.TelephoneType).values()}"
+                <option th:each="telType : ${T(com.slamarti.hlw.aanmelden.model.types.TelephoneType).values()}"
                         th:value="${telType}" th:text="${telType.displayName}"></option>
             </select>
         </p>
@@ -217,7 +217,7 @@
                    pattern="^[a-zA-Z]+$" required>
             <span class="title-item">Geslacht</span>
             <select class="standard-input" th:field="*{verzorgers[__${i.index}__].geslacht}" required>
-                <option th:each="geslacht : ${T(com.slamarti.hlw.aanmelden.model.Geslacht).values()}"
+                <option th:each="geslacht : ${T(com.slamarti.hlw.aanmelden.model.types.Geslacht).values()}"
                         th:value="${geslacht}"
                         th:text="${geslacht.displayName}"></option>
             </select>
@@ -225,14 +225,14 @@
         <p class="input-container container-single">
             <span class="title-item">Relatie tot leerling</span>
             <select class="standard-input" th:field="*{verzorgers[__${i.index}__].verzorgerType}" required>
-                <option th:each="verzorgerType : ${T(com.slamarti.hlw.aanmelden.model.VerzorgerType).values()}"
+                <option th:each="verzorgerType : ${T(com.slamarti.hlw.aanmelden.model.types.VerzorgerType).values()}"
                         th:value="${verzorgerType}" th:text="${verzorgerType.displayName}"></option>
             </select>
         </p>
         <p class="input-container container-single">
             <span class="title-item">Relatie tot leerling</span>
             <select class="standard-input" th:field="*{verzorgers[__${i.index}__].burgerlijkeStaat}" required>
-                <option th:each="burgerlijkeStaat : ${T(com.slamarti.hlw.aanmelden.model.BurgerlijkeStaat).values()}"
+                <option th:each="burgerlijkeStaat : ${T(com.slamarti.hlw.aanmelden.model.types.BurgerlijkeStaat).values()}"
                         th:value="${burgerlijkeStaat}" th:text="${burgerlijkeStaat.displayName}"></option>
             </select>
         </p>
